@@ -6,3 +6,26 @@
   width: 90% !important;
   max-width: 450px !important;
 }
+
+.center-error {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #555;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.center-error-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.center-error-subtitle {
+  font-size: 14px;
+  margin-top: 6px;
+  opacity: 0.85;
+}

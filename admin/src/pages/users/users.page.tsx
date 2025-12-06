@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Modal, message, Form, Spin } from "antd";
 import { useEffect } from "react";
+import "./user.page.css";
 import HeaderCard from "../../components/header-card/header-card";
 import AntdTable from "../../components/antd-table/antd-table";
 import UpsertUserModal from "../../components/upsert-user-form/upsert-user-form";
@@ -87,7 +88,12 @@ const UsersPage = () => {
   };
 
   if (error) {
-    return <div>Error loading users</div>;
+    return (
+      <div className="center-error">
+        <div className="center-error-title">Error loading users</div>
+        <div className="center-error-subtitle">Please try again.</div>
+      </div>
+    );
   }
 
   return (
