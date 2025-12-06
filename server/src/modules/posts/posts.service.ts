@@ -14,8 +14,10 @@ export class PostsService {
     @InjectRepository(User) private readonly userRepo: Repository<User>,
   ) {}
 
-  async create(createPostDto: CreatePostDto, userId: number) {
-    const author = await this.userRepo.findOne({ where: { id: userId } });
+  async create(createPostDto: CreatePostDto) {
+    const author = await this.userRepo.findOne({
+      where: { id: createPostDto.userId },
+    });
     if (!author) throw new NotFoundException('User not found');
 
     const post = this.postRepo.create({ ...createPostDto, author });

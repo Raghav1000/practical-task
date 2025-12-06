@@ -14,10 +14,7 @@
 ---
 
 ### ⚠️ Known Skips / Assumptions
-1. **Authentication middleware is skipped** (JWT generation works, but route guards are not enforced).
-2. **Image upload is skipped** (only image URL is stored).
-3. **Role-based authorization is not implemented**.
-
+1. **Authentication middleware just for profile** (JWT generation works, but route guards are not enforced).
 ---
 
 ### 🔧 Suggested Enhancements
@@ -29,7 +26,7 @@
 ---
 
 ## 🚀 Migration & Seeding
-- Commands to **generate, run, and revert migrations** are commented in `data-source.ts`.
+- Commands to **generate, run, and revert migrations** are in package.json.
 - Use the following command to generate dummy data:
   ```bash
   pnpm run seed

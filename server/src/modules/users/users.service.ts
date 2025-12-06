@@ -21,6 +21,10 @@ export class UsersService {
       where: { id: id },
       relations: ['posts'],
     });
+    if (!user) {
+      throw new NotFoundException('Profile not found');
+    }
+
     return user;
   }
 

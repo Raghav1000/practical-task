@@ -23,6 +23,11 @@ export class CreatePostDto {
   @IsOptional()
   @IsString()
   imageURL?: string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsNumber()
+  userId: number;
 }
 
 export class LikePostDto {

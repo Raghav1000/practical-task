@@ -7,19 +7,25 @@ import {
   Delete,
   Param,
   Patch,
+  UseGuards,
+  Req,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto, UpdateUserDto } from './users.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
+import type { JwtRequest } from 'src/types/request.types';
 
 @ApiTags('users')
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Get('profile/:id')
-  me(@Param('id') id: number) {
-    return this.usersService.me(id);
+  @UseGuards(AuthGuard('jwt'))
+  @Get('profile')
+  me(@Req() req: JwtRequest) {
+    const userId = req.user.userId;
+    return this.usersService.me(userId);
   }
 
   @Post()
