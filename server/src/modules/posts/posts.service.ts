@@ -27,6 +27,9 @@ export class PostsService {
   async findAllByUser(userId: number, page = 1, limit = 10) {
     const skip = (page - 1) * limit;
 
+    page = Math.max(1, page);
+    limit = Math.min(20, Math.max(1, limit));
+
     const [posts, total] = await this.postRepo.findAndCount({
       where: { author: { id: userId } },
       relations: ['author'],
