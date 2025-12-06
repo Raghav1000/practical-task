@@ -1,1 +1,1 @@
-## 🧩 Refer admin/README.md & server/README.md
+## Refer admin/README & server/README
